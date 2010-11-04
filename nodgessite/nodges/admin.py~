@@ -1,0 +1,5 @@
+from nodgessite.nodges.models import Node, HalfEdge
+from django.contrib import admin
+
+admin.site.register(Node)
+admin.site.register(HalfEdge)
