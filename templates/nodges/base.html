@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <title>Nodges</title>
+    <style type="text/css">
+      body, h1, h2, h3, h4, h5, p, div, span, a, table, td, th, b, i, emph, input, label, textarea, select, option {
+      font-family: Verdana, Arial, sans-serif;
+      color: #333;
+      }
+      body {
+      background-color: #333;
+      padding: 0px;
+      margin:0px;
+      }
+      #titlebar {
+      background-color: #111;
+      padding: 0px;
+      margin:0px;
+      }
+      #titlebar h1 {
+      margin: 0 0;
+      padding: 10px 0px 10px 20px;
+      color: #333;
+      font-weight:normal;
+      }
+      #main {
+      margin: 0 auto;
+      }
+      #main-wrapper {
+      }
+      .detail-table form {
+      padding:20px;
+      background-color: #eee;
+      border: 1px solid #aaa;
+      -moz-border-radius:10px;
+      -moz-webkit-radius:10px;
+      }
+      .node-table {
+      width: 100%;
+
+      }
+      .node-table tr.parents, .node-table tr.children {
+      height: 180px;
+      }
+      .node-table td {
+      text-align:center;
+      padding: 20px;
+      }
+      .node-table tr.parents td div, .node-table tr.children td div, .node-table tr.main a, .node-table tr.main span {
+      border: 1px solid #ccc;
+      margin: 0 auto;
+      padding: 20px;
+      -moz-border-radius: 30px;
+      -webkit-border-radius: 30px;
+      background-color: #eee;
+      }
+      .node-table a {
+      padding: 2px 6px;
+      font-weight: normal;
+      font-size: 24px;
+      white-space: no-wrap;
+      }
+      .node-table a.main {
+      font-weight: bold;
+      font-size: 32px;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <div id="titlebar">
+      <h1>Nodges</h1>
+    </div>
+
+    <div id="main">
+      <div id="main-wrapper">
+	{% block content %}{% endblock content %}
+      </div>
+    </div>
+
+  </body>
+
+</html>

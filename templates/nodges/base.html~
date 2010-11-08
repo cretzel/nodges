@@ -1,6 +1,52 @@
-{% extends "nodges/base.html" %}
-
-{% block content %}
+<html>
+  <head>
+    <title>Nodges - Node details</title>
+    <style type="text/css">
+      body, h1, h2, h3, h4, h5, p, div, span, a, table, td, th, b, i, emph, input, label, textarea, select, option {
+      font-family: Verdana, Arial, sans-serif;
+      color: #333;
+      }
+      #main {
+      margin: 0 auto;
+      }
+      #main-wrapper {
+      }
+      .detail-table {
+      margin: 0 auto;
+      background-color: #cce;
+      border: 2px solid #aaa;
+      -moz-border-radius:10px;
+      -moz-webkit-radius:10px;
+      }
+      .node-table {
+      width: 100%;
+      }
+      .node-table tr.parents, .node-table tr.children {
+      height: 180px;
+      }
+      .node-table td {
+      text-align:center;
+      }
+      .node-table tr.parents td div, .node-table tr.children td div {
+      border: 1px solid #ccc;
+      margin: 0 auto;
+      padding: 20px;
+      -moz-border-radius: 30px;
+      -webkit-border-radius: 30px;
+      background-color: #eee;
+      }
+      .node-table a {
+      padding: 2px 6px;
+      font-weight: normal;
+      font-size: 24px;
+      white-space: no-wrap;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <div id="main">
+      <div id="main-wrapper">
 
 	<table border="0" class="node-table">
 	  <tr class="parents">
@@ -51,4 +97,9 @@
 
 	  </tr>
 	</table>
-{% endblock content %}
+      </div>
+    </div>
+
+  </body>
+
+</html>

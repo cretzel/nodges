@@ -4,12 +4,23 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.core.urlresolvers import reverse
 from nodgessite.nodges.models import Node, Edge
 
-def detail(request, node_id):
+def map(request, node_id):
     node = get_object_or_404(Node, pk=node_id)
     parent_list = Node.objects.filter(outgoing_edges__to_node__id=node.id)
     child_list = Node.objects.filter(incoming_edges__from_node__id=node.id)
 
-    return render_to_response("nodges/detail.html", {
+    return render_to_response("nodges/map.html", {
+            'node': node,
+            'parent_list': parent_list,
+            'child_list': child_list,
+            })
+
+def view(request, node_id):
+    node = get_object_or_404(Node, pk=node_id)
+    parent_list = Node.objects.filter(outgoing_edges__to_node__id=node.id)
+    child_list = Node.objects.filter(incoming_edges__from_node__id=node.id)
+
+    return render_to_response("nodges/view.html", {
             'node': node,
             'parent_list': parent_list,
             'child_list': child_list,
@@ -22,7 +33,7 @@ def update(request, node_id):
     if "" == new_title:
         parent_list = Node.objects.filter(outgoing_edges__to_node__id=node.id)
         child_list = Node.objects.filter(incoming_edges__from_node__id=node.id)
-        return render_to_response("nodges/detail.html", {
+        return render_to_response("nodges/view.html", {
                 'node': node,
                 'parent_list': parent_list,
                 'child_list': child_list,
@@ -32,4 +43,4 @@ def update(request, node_id):
         node.title = new_title
         node.description = new_description
         node.save()
-        return HttpResponseRedirect(reverse('nodgessite.nodges.views.detail', args=(node.id,)))
+        return HttpResponseRedirect(reverse('nodgessite.nodges.views.view', args=(node.id,)))

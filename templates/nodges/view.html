@@ -2,29 +2,34 @@
 
 {% block content %}
 
+  <table border="0" width="100%">
+    <tr>
+      <td width="50%">
 	<table border="0" class="node-table">
 	  <tr class="parents">
 	    <td><div>
 		{% for parent in parent_list %}
-		<a href="../{{parent.id}}">{{parent.title}}</a>
+		<a href="../{{parent.id}}/view">{{parent.title}}</a>
 		{% endfor %}
 	    </div></td>
 	  </tr>
 	  
-	  <tr>
+	  <tr class="main">
 	    <td>
-	      <h1>{{node.title}}</h1>
+	      <h1><span>{{node.title}}</span></h1>
 	    </td>
 	  </tr>
 	  
 	  <tr class="children">
 	    <td><div>
 		{% for child in child_list %}
-		<a href="../{{child.id}}">{{ child.title }}</a>
+		<a href="../{{child.id}}/view">{{ child.title }}</a>
 		{% endfor %}
 	    </div></td>
 	  </tr>
 	</table>
+      </td>
+      <td width="50%">
 
 	<table border="0" width="50%" class="detail-table">
 	  <tr>
@@ -51,4 +56,7 @@
 
 	  </tr>
 	</table>
+	</td>
+</tr>
+</table>
 {% endblock content %}

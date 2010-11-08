@@ -1,0 +1,30 @@
+{% extends "nodges/base.html" %}
+
+{% block content %}
+
+	<table border="0" class="node-table">
+	  <tr class="parents">
+	    <td><div>
+		{% for parent in parent_list %}
+		<a href="../{{parent.id}}">{{parent.title}}</a>
+		{% endfor %}
+	    </div></td>
+	  </tr>
+	  
+	  <tr class="main">
+	    <td>
+	      <h1><a class="main" href="view">{{node.title}}</a></h1>
+	      
+	    </td>
+	  </tr>
+	  
+	  <tr class="children">
+	    <td><div>
+		{% for child in child_list %}
+		<a href="../{{child.id}}">{{ child.title }}</a>
+		{% endfor %}
+	    </div></td>
+	  </tr>
+	</table>
+
+{% endblock content %}
